@@ -1,0 +1,68 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    color: var(--clr-font);
+    font-family: cubano;
+}
+@font-face {
+    font-family: "cubano";
+    src: url("https://use.typekit.net/af/a171c7/00000000000000007735a084/30/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3") format("woff2"),
+        url("https://use.typekit.net/af/a171c7/00000000000000007735a084/30/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3") format("woff"),
+        url("https://use.typekit.net/af/a171c7/00000000000000007735a084/30/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3") format("opentype");
+    font-display: auto;
+    font-style: normal;
+    font-weight: 400;
+    font-stretch: normal;
+}
+:root {
+    --clr-accent: #3523a9;
+    --clr-border: #3d2259;
+    --clr-bg: #13111c;
+    --clr-font: #c9cabcf7;
+    color-scheme: dark;
+    font-size: 32px;
+}
+body {
+    position: relative;
+    min-height: 100vh;
+    background-image: radial-gradient(#3523a9 6.5%, var(--clr-bg) 6.5%);
+    background-size: 26px 26px;
+    overflow-x: hidden;
+}
+body::before,
+body::after {
+    content: "";
+    position: absolute;
+    width: 100vw;
+    height: 6px;
+    background-color: var(--clr-accent);
+}
+body::before {
+    top: 0;
+    position: fixed;
+    z-index: 1;
+    filter: blur(3px);
+}
+body::after {
+    position: absolute;
+    bottom: 0;
+    filter: blur(3px);
+}
+input {
+    background-color: var(--clr-bg);
+}
+input::placeholder {
+    color: var(--clr-font);
+}
+input,
+button {
+    font-size: 24px;
+}
+button {
+    cursor: pointer;
+    border: 3px solid var(--clr-border);
+    background-color: transparent;
+}
