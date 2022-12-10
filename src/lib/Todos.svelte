@@ -1,6 +1,6 @@
 <script>
     import { db } from "../lib/firebaseConfig";
-    import { collection, onSnapshot, addDoc, updateDoc, deleteDoc, doc, serverTimestamp } from "firebase/firestore";
+    import { collection, onSnapshot, addDoc, updateDoc, deleteDoc, doc, serverTimestamp, query, orderBy } from "firebase/firestore";
     import { getAuth, onAuthStateChanged } from "firebase/auth";
     import FaPlus from "svelte-icons/fa/FaPlus.svelte";
 
@@ -8,8 +8,9 @@
 
     let todos = [];
     const colRef = collection(db, "users", uid, "todos");
+    const q = query(colRef, orderBy("createdAt", "desc"));
     let message = "Fetching data...";
-    const unsubscribe = onSnapshot(colRef, (snapshot) => {
+    const unsubscribe = onSnapshot(q, (snapshot) => {
         message = snapshot.empty ? "No todos found!" : null;
 
         let fbTodosArray = [];
@@ -142,8 +143,9 @@
         scale: 1.2;
         rotate: 5deg;
     }
-    .input-error {
-        background-color: rgb(255, 78, 62);
+    .input-error::placeholder {
+        color: rgb(255, 48, 29);
+        text-decoration: underline;
     }
     .completed {
         text-decoration: line-through;
