@@ -1,5 +1,5 @@
 <script>
-    import { db } from "../lib/firebaseConfig";
+    import { db } from "./firebaseConfig";
     import { collection, onSnapshot, addDoc, updateDoc, deleteDoc, doc, serverTimestamp, query, orderBy } from "firebase/firestore";
     import { getAuth, onAuthStateChanged } from "firebase/auth";
     import FaPlus from "svelte-icons/fa/FaPlus.svelte";

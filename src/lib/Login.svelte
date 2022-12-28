@@ -1,11 +1,11 @@
 <script>
-    import { getAuth, signInWithPopup, GithubAuthProvider, onAuthStateChanged } from "firebase/auth";
+    import { getAuth, signInWithPopup, GoogleAuthProvider, onAuthStateChanged } from "firebase/auth";
     import Todos from "./Todos.svelte";
-    import FaGithub from "svelte-icons/fa/FaGithub.svelte";
+    import FaGoogle from "svelte-icons/fa/FaGoogle.svelte";
 
     let user;
     const auth = getAuth();
-    const provider = new GithubAuthProvider();
+    const provider = new GoogleAuthProvider();
 
     const login = () => {
         signInWithPopup(auth, provider).catch((error) => {
@@ -28,7 +28,7 @@
     <header class="logged-out">
         <button on:click={login}
             >Login with
-            <div class="icon" aria-label="GitHub"><FaGithub /></div>
+            <div class="icon" aria-label="GitHub"><FaGoogle /></div>
         </button>
     </header>
 {/if}
@@ -65,7 +65,7 @@
     }
     .icon {
         display: inline-block;
-        height: 1.2rem;
+        height: 1.075rem;
     }
     header {
         display: flex;

@@ -28,7 +28,7 @@
 body {
     position: relative;
     min-height: 100vh;
-    background-image: radial-gradient(#3523a9 6.5%, var(--clr-bg) 6.5%);
+    background-image: radial-gradient(var(--clr-accent) 6.5%, var(--clr-bg) 6.5%);
     background-size: 26px 26px;
     overflow-x: hidden;
 }
